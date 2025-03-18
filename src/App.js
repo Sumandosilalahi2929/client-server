@@ -1,12 +1,15 @@
-import logo from "./logo.svg";
-import "./App.css";
+import React from "react";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import PageSingnin from "./pages/signin";
 
 function App() {
   return (
-    <div className="App">
-      <h1>hello world</h1>
-      <p>mantap</p>
-    </div>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<></>} />
+        <Route path="/signin" element={<PageSingnin />} />
+      </Routes>
+    </BrowserRouter>
   );
 }
 
