@@ -1,6 +1,5 @@
-import React from "react";
-import "./App.css";
+const config = {
+  api_host_dev: process.env.REACT_APP_HOST_DEV,
+};
 
-export default function index() {
-  return <div>index</div>;
-}
+export { config };
