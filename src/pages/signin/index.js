@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Container, Card } from "react-bootstrap";
 import axios from "axios";
 import SAlert from "../../component/Alert";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Navigate } from "react-router-dom";
 import SForm from "./form";
 
 import { config } from "../../configs";
@@ -25,12 +25,14 @@ export default function PageSingnin() {
   const handleSubmit = async () => {
     setIsLoading(true);
     try {
-      const res = await axios.post(`${config.api_host_dev}/cms/auth/signin`, {
-        form,
-      });
+      const res = await axios.post(
+        `${config.api_host_dev}/cms/auth/signin`,
+        form
+      );
 
       setAlert({ message: "Login berhasil!", type: "success" });
       console.log(res.data.data.token);
+      localStorage.setItem("token", res.data.data.token);
       setIsLoading(false);
       navigate("/");
     } catch (err) {
@@ -42,6 +44,10 @@ export default function PageSingnin() {
       });
     }
   };
+
+  const token = localStorage.getItem("token");
+
+  if (token) return <Navigate to="/" replace={true} />;
 
   return (
     <Container className="d-flex justify-content-center align-items-center vh-100">

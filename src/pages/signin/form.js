@@ -3,24 +3,23 @@ import SButton from "../../component/Button";
 import TextInputWithLabel from "../../component/TextInputWithLabel";
 import { Form } from "react-bootstrap";
 
-export default function SForm(form, handleChange, handleSubmit, isLoading) {
+export default function SForm({ form, handleChange, handleSubmit, isLoading }) {
   return (
     <Form>
       <TextInputWithLabel
-        label="Email"
+        placeholder={"Masukan email"}
+        label={"Email"}
         name="email"
-        value={form.email}
+        value={form?.email}
         type="email"
-        placeholder="Enter email"
         onChange={handleChange}
       />
-
       <TextInputWithLabel
-        label="Password"
+        placeholder={"Masukan password"}
+        label={"Password"}
         name="password"
-        value={form.password}
+        value={form?.password}
         type="password"
-        placeholder="Password"
         onChange={handleChange}
       />
 
