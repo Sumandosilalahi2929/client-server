@@ -1,4 +1,4 @@
-import { USER_LOGIN, USER_LOGOUT } from "./constants";
+import { USER_LOGIN, USER_LOGOUT } from "./constans";
 
 export function userLogin(token, role, refreshToken) {
   return {

@@ -5,7 +5,7 @@ import {
   compose,
 } from "redux";
 
-import thunk from "redux-thunk";
+import { thunk } from "redux-thunk";
 import authReducer from "./auth/reducer";
 // import categoriesReducer from "./categories/reducer";
 // import notifReducer from "./notif/reducer";

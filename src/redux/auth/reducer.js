@@ -1,4 +1,4 @@
-import { USER_LOGIN, USER_LOGOUT } from "./constants";
+import { USER_LOGIN, USER_LOGOUT } from "./constans";
 
 let initialState = localStorage.getItem("auth")
   ? JSON.parse(localStorage.getItem("auth"))
@@ -14,6 +14,7 @@ export default function reducer(state = initialState, action) {
       };
 
     case USER_LOGOUT:
+      localStorage.removeItem("auth");
       return { token: null, role: null, refreshToken: null };
 
     default:

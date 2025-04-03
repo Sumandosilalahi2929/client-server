@@ -1,13 +1,14 @@
 import React, { useState } from "react";
 import { Container, Card } from "react-bootstrap";
-import axios from "axios";
 import SAlert from "../../component/Alert";
 import { useNavigate, Navigate } from "react-router-dom";
 import SForm from "./form";
-
-import { config } from "../../configs";
+import { postData } from "../../utils/fetch";
+import { useDispatch } from "react-redux";
+import { userLogin } from "../../redux/auth/actions";
 
 export default function PageSingnin() {
+  const dispatch = useDispatch();
   const navigate = useNavigate();
   const [form, setForm] = useState({
     email: "",
@@ -25,14 +26,9 @@ export default function PageSingnin() {
   const handleSubmit = async () => {
     setIsLoading(true);
     try {
-      const res = await axios.post(
-        `${config.api_host_dev}/cms/auth/signin`,
-        form
-      );
-
+      const res = await postData(`/cms/auth/signin`, form);
+      dispatch(userLogin(res.data.data.token, res.data.data.role));
       setAlert({ message: "Login berhasil!", type: "success" });
-      console.log(res.data.data.token);
-      localStorage.setItem("token", res.data.data.token);
       setIsLoading(false);
       navigate("/");
     } catch (err) {
@@ -44,10 +40,6 @@ export default function PageSingnin() {
       });
     }
   };
-
-  const token = localStorage.getItem("token");
-
-  if (token) return <Navigate to="/" replace={true} />;
 
   return (
     <Container className="d-flex justify-content-center align-items-center vh-100">
