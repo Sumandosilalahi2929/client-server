@@ -67,7 +67,7 @@ function SNavbar() {
           {/* <NavLink
             role={role}
             roles={organizers.lihat}
-            action={() => navigate('/organizers')}
+            action={() => navigate("/organizers")}
           >
             Oranizer
           </NavLink> */}
