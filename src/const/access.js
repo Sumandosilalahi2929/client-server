@@ -38,3 +38,10 @@ export const accessOrders = {
   edit: ["organizer", "admin", "owner"],
   hapus: ["organizer", "admin", "owner"],
 };
+
+export const accessOrganizers = {
+  lihat: ["owner"],
+  tambah: ["owner"],
+  edit: ["owner"],
+  hapus: ["owner"],
+};

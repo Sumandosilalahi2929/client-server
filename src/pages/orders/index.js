@@ -38,7 +38,7 @@ function OrderPage() {
           className="cursor-pointer position-relative"
           onClick={() => setIsShowed(true)}
         >
-          <SearchInput disabled query={displayDate} />
+          <SearchInput readOnly query={displayDate} />
           {isShowed ? (
             <DateRange
               date={orders.date}
