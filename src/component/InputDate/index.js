@@ -1,5 +1,6 @@
 import * as React from "react";
 import { DateRange } from "react-date-range";
+import { id } from "date-fns/locale";
 
 export default function IndexDate({ date, onChangeDate, setIsShowed }) {
   React.useEffect(() => {
@@ -34,6 +35,7 @@ export default function IndexDate({ date, onChangeDate, setIsShowed }) {
         onRangeFocusChange={check}
         ranges={[date]}
         maxDate={new Date()}
+        locale={id}
       />
     </div>
   );
