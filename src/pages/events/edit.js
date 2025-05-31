@@ -13,7 +13,7 @@ import {
 } from "../../redux/lists/actions";
 import moment from "moment";
 
-function EventsCreate() {
+function EventsEdit() {
   const navigate = useNavigate();
   const { eventId } = useParams();
   const dispatch = useDispatch();
@@ -262,4 +262,4 @@ function EventsCreate() {
   );
 }
 
-export default EventsCreate;
+export default EventsEdit;

@@ -22,15 +22,13 @@ export default function SForm({ form, handleChange, handleSubmit, isLoading }) {
         type="password"
         onChange={handleChange}
       />
-
       <SButton
         loading={isLoading}
         disabled={isLoading}
-        action={handleSubmit}
         variant="primary"
-        className="w-100"
+        action={handleSubmit}
       >
-        login
+        Submit
       </SButton>
     </Form>
   );
